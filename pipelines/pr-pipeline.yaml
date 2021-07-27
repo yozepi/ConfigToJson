@@ -34,7 +34,9 @@ stages:
     steps:
     - task: CmdLine@2
       inputs:
-        script: 'ls $(Build.Repository.LocalPath)$(baseFolder)'
+        script: |
+          ls $(Build.Repository.LocalPath)$(baseFolder)
+          ls $(Build.Repository.LocalPath)$(baseFolder)/**/*.csproj
 
     - template: pipeline-templates/build-project.template.yaml@templates
       parameters:
