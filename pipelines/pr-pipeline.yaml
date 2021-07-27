@@ -21,9 +21,11 @@ resources:
 
 variables:
 - name: projectName
-  value: ConfigToJson
+  value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
+
 - name: baseFolder
   value: /src
+  
 stages:
 - stage: UnitTestFramework
   displayName: ConfigToJson Unit Tests
