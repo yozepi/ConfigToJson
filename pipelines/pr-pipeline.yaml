@@ -22,7 +22,8 @@ resources:
 variables:
 - name: projectName
   value: ConfigToJson
-
+- name: baseFolder
+  value: /src
 stages:
 - stage: UnitTestFramework
   displayName: ConfigToJson Unit Tests
@@ -31,7 +32,12 @@ stages:
   - job:
     displayName: Build and Test
     steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'ls $(Build.Repository.LocalPath)$(baseFolder)'
+
     - template: pipeline-templates/build-project.template.yaml@templates
       parameters:
         project: $(projectName)
-        skipBuild: true
+        baseFolder: $(baseFolder)
+        skipBuild: false
