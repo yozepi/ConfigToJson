@@ -1,0 +1,37 @@
+name: $(Date:yyyyMMdd)$(Rev:.rr)
+
+trigger:
+  branches:
+    exclude:
+    - "*"
+
+pr:
+ branches:
+  include:
+    - main
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: utilities/pipeline-scripts
+
+variables:
+- name: projectName
+  value: ConfigToJson
+
+stages:
+- stage: UnitTestFramework
+  displayName: ConfigToJson Unit Tests
+
+  jobs:
+  - job:
+    displayName: Build and Test
+    steps:
+    - template: pipeline-templates/build-project.template.yaml@templates
+      parameters:
+        project: $(projectName)
+        skipBuild: true
