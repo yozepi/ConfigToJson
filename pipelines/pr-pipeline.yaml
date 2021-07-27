@@ -32,10 +32,6 @@ stages:
   - job:
     displayName: Build and Test
     steps:
-    - task: CmdLine@2
-      inputs:
-        script: 'ls $(Build.Repository.LocalPath)$(baseFolder)'
-
     - template: pipeline-templates/build-project.template.yaml@templates
       parameters:
         project: $(projectName)
