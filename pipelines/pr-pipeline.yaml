@@ -34,4 +34,5 @@ stages:
     - template: pipeline-templates/build-project.template.yaml@templates
       parameters:
         project: $(projectName)
+        baseFolder: /src
         skipBuild: true
