@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yozepi.ConfigToJson", "yozepi.ConfigToJson\yozepi.ConfigToJson.csproj", "{C7A46FF2-E2DD-4877-BA59-4F8F14B0FE3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yozepi.ConfigToJson.UnitTests", "yozepi.ConfigToJson.UnitTests\yozepi.ConfigToJson.UnitTests.csproj", "{63C154BE-9793-4589-BC67-5891BB3A4711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yozepi.ConfigToJson.UnitTest", "yozepi.ConfigToJson.UnitTests\yozepi.ConfigToJson.UnitTest.csproj", "{63C154BE-9793-4589-BC67-5891BB3A4711}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
