@@ -39,10 +39,10 @@ parameters:
 
 variables:
 - name: major-version
-  value: ${{ parameters.major-version }}
+  value: 1
   
 - name: minor-version
-  value: ${{ parameters.minor-version }}
+  value: 1
   
 - name: patch-version
   value: $[counter(format('{0}.{1}', variables['major-version'], variables["minor-version"]), 0)]
