@@ -38,11 +38,17 @@ parameters:
   default: false
 
 variables:
+- name: major-version
+  value: ${{ parameters.major-version }}
+  
+- name: minor-version
+  value: ${{ parameters.minor-version }}
+  
 - name: patch-version
-  value: $[counter(format('{0}.{1}', parameters['major-version'], parameters["minor-version"]), 0)]
+  value: $[counter(format('{0}.{1}', variables['major-version'], variables["minor-version"]), 0)]
 
 - name: full-version
-  value: '$(parameters.major-version).$(parameters.minor-version)).$(patch-version)'
+  value: '$(major-version).$(minor-version)).$(patch-version)'
 
 steps:
 
