@@ -39,7 +39,7 @@ parameters:
 
 variables:
 - name: patch-version
-  value: $[counter(format('{0}.{1}', $(parameters.major-version), $(parameters.minor-version)), 0)]
+  value: $[counter(format('{0}.{1}', parameters['major-version'], $(parameters["minor-version"]), 0)]
 
 - name: full-version
   value: '$(parameters.major-version).$(parameters.minor-version)).$(patch-version)'
