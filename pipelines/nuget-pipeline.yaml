@@ -11,7 +11,7 @@ pool:
 parameters:
 - name: project
   type: string
-  default: '**/yozepi.ConfigToJson.csproj'
+  default: 'yozepi.ConfigToJson.csproj'
 
 - name: title
   type: string
@@ -27,7 +27,7 @@ parameters:
 
 - name: baseFolder
   type: string
-  default: ''
+  default: '/**'
 
 - name: artifactName
   type: string
