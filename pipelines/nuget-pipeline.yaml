@@ -1,5 +1,17 @@
 name: $(Date:yyyyMMdd)$(Rev:.rr)
+
 parameters:
+- name: project
+  type: string
+
+- name: title
+  type: string
+  default: ''
+
+- name: baseFolder
+  type: string
+  default: ''
+
 - name: artifactName
   type: string
   default: 'build-artifacts'
@@ -30,7 +42,7 @@ steps:
   displayName: 'Pack --name--'
   inputs:
     command: 'pack'
-    packagesToPack: '**/yozepi.ConfigToJson.csproj'
+    packagesToPack: '$(Build.Repository.LocalPath)${{ parameters.baseFolder }}/${{ parameters.project }}'
     packDirectory: '$(Build.ArtifactStagingDirectory)/nupkgs'
     nobuild: false
     includesymbols: true
