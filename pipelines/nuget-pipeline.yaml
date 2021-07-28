@@ -25,10 +25,6 @@ parameters:
   type: string
   default: '0'
 
-- name: patch-version
-  type: string
-  default: $[counter(format('{0}.{1}', ${{ patameters.major-version }}, ${{ parameters.minor-version }}'), 0)]
-
 - name: baseFolder
   type: string
   default: '/src'
@@ -42,10 +38,14 @@ parameters:
   default: false
 
 variables:
+- name: patch-version
+  value: $[counter(format('{0}.{1}', ${{ patameters.major-version }}, ${{ parameters.minor-version }}'), 0)]
+
 - name: full-version
-  value: '$(major-version).$(minor-version).$(patch-version)'
+  value: '${{ patameters.major-version }}.${{ parameters.minor-version }}.$(patch-version)'
 
 steps:
+
 - task: DotNetCoreCLI@2
   displayName: 'Pack --name--'
   inputs:
