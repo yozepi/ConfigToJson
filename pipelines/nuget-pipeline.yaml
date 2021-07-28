@@ -30,7 +30,7 @@ steps:
   displayName: 'Pack --name--'
   inputs:
     command: 'pack'
-    packagesToPack: '**/yozepi.ConfigToJson.csproj.csproj'
+    packagesToPack: '**/yozepi.ConfigToJson.csproj'
     packDirectory: '$(Build.ArtifactStagingDirectory)/nupkgs'
     nobuild: false
     includesymbols: true
