@@ -44,6 +44,7 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: '${{ parameters.artifactName }}'
     publishLocation: 'Container'
+    
 # - task: DotNetCoreCLI@2
 #   inputs:
 #     command: 'push'
