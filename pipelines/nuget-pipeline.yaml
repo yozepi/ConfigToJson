@@ -48,7 +48,7 @@ variables:
   value: $[counter(format('{0}.{1}', variables['major-version'], variables['minor-version']), 0)]
 
 - name: full-version
-  value: '$(major-version).$(minor-version)).$(patch-version)'
+  value: '$(major-version).$(minor-version).$(patch-version)'
 
 steps:
 
