@@ -12,10 +12,22 @@ parameters:
 - name: project
   type: string
   default: 'yozepi.ConfigToJson/yozepi.ConfigToJson.csproj'
-  
+
 - name: title
   type: string
   default: ''
+
+- name: major-version
+  type: string
+  default: '1'
+
+- name: minor-version
+  type: string
+  default: '0'
+
+- name: patch-version
+  type: string
+  default: $[counter(format('{0}.{1}', ${{ patameters.major-version }}, ${{ parameters.minor-version }}'), 0)]
 
 - name: baseFolder
   type: string
@@ -30,18 +42,10 @@ parameters:
   default: false
 
 variables:
-- name: major-version
-  value: '1'
-- name: minor-version
-  value: '0'
-- name: patch-version
-  value: $[counter(format('{0}.{1}', variables['major-version'], variables['minor-version']), 0)]
-
 - name: full-version
   value: '$(major-version).$(minor-version).$(patch-version)'
 
 steps:
-
 - task: DotNetCoreCLI@2
   displayName: 'Pack --name--'
   inputs:
