@@ -15,8 +15,7 @@ parameters:
 
 - name: title
   type: string
-  required: false
-  default: ''
+  default: 'ConfigToJson'
 
 - name: major-version
   type: string
@@ -48,7 +47,7 @@ variables:
 steps:
 
 - task: DotNetCoreCLI@2
-  displayName: 'Pack --name--'
+  displayName: 'NuGet Pack ${{ coalesce(parameters.title, parameters.project) }}'
   inputs:
     command: 'pack'
     packagesToPack: '$(Build.Repository.LocalPath)${{ parameters.baseFolder }}/${{ parameters.project }}'
