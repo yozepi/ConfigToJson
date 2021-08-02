@@ -49,7 +49,7 @@ stages:
 #         skipBuild: false
 
 - stage: PackAndPublish
-  dependsOn: UnitTest
+  # dependsOn: UnitTest
   displayName: '$(variables.title)NuGet Pack and Publish'
 
   jobs:
