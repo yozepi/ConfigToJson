@@ -18,14 +18,14 @@ variables:
 - name: title
   value: ConfigToJson
 
-- name: major-version
+- name: majorVersion
   value: 1
 
-- name: minor-version
+- name: minorVersion
   value: 0
 
-- name: patch-version
-  value: $[counter(format('{0}.{1}', variables['major-version'], variables['minor-version']), 0)]
+- name: patchVersion
+  value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
 stages:
 - stage: UnitTest
@@ -56,6 +56,6 @@ stages:
         project: $(projectName)
         baseFolder:  $(baseFolder)
         skipBuild: true
-        majorVersion: $(major-version)
-        minorVersion: $(minor-version)
-        patchVersion: $(patch-version)
+        majorVersion: $(majorVersion)
+        minorVersion: $(minorVersion)
+        patchVersion: $(patchVersion)
