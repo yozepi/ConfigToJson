@@ -61,7 +61,6 @@ stages:
         title: $(title)
         project: $(projectName)
         baseFolder:  $(baseFolder)
-        skipBuild: true
         majorVersion: $(variables.majorVersion)
         minorVersion: $(variables.minorVersion)
         patchVersion: $(variables.patchVersion)
