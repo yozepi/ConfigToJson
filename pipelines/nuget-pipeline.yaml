@@ -50,7 +50,7 @@ stages:
   - job:
     displayName: Pack and Publish
     steps:
-    - template: pipeline-templates/nuget-pipeline.template.yaml.yaml@templates
+    - template: pipeline-templates/nuget-pipeline.template.yaml@templates
       parameters:
         title: $(title)
         project: $(projectName)
