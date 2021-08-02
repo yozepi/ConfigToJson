@@ -25,32 +25,32 @@ variables:
   value: /src
 
 - name: majorVersion
-  value: '1'
+  value: '0'
 
 - name: minorVersion
-  value: '0'
+  value: '1'
 
 - name: patchVersion
   value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
 stages:
-- stage: UnitTest
-  displayName: '$(title) Build and Test'
+# - stage: UnitTest
+#   displayName: '$(title) Build and Test'
 
-  jobs:
-  - job:
-    displayName: Build and Test
-    steps:
-    - template: pipeline-templates/build-project.template.yaml@templates
-      parameters:
-        title: $(title)
-        project: $(projectName)
-        baseFolder: $(baseFolder)
-        skipBuild: false
+#   jobs:
+#   - job:
+#     displayName: Build and Test
+#     steps:
+#     - template: pipeline-templates/build-project.template.yaml@templates
+#       parameters:
+#         title: $(title)
+#         project: $(projectName)
+#         baseFolder: $(baseFolder)
+#         skipBuild: false
 
 - stage: PackAndPublish
   dependsOn: UnitTest
-  displayName: NuGet Pack and Publish
+  displayName: '$(variables.title)NuGet Pack and Publish'
 
   jobs:
   - job:
