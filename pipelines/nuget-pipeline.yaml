@@ -17,6 +17,12 @@ resources:
 variables:
 - name: title
   value: ConfigToJson
+  
+- name: projectName
+  value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
+
+- name: baseFolder
+  value: /src
 
 - name: majorVersion
   value: '1'
