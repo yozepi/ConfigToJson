@@ -34,7 +34,7 @@ variables:
   value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
 - name: fullVersion
-  value: '${majorVersion}.${minorVersion}.${patchVersion}' 
+  value: '$(majorVersion).$(minorVersion).$(patchVersion)' 
 stages:
 # - stage: UnitTest
 #   displayName: '$(title) Build and Test'
