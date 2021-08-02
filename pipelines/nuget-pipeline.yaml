@@ -16,13 +16,13 @@ resources:
 
 variables:
 - name: title
-  value: ConfigToJson
+  value: 'ConfigToJson'
   
 - name: projectName
   value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
 
 - name: baseFolder
-  value: /src
+  value: '/src'
 
 - name: majorVersion
   value: '0'
@@ -33,6 +33,8 @@ variables:
 - name: patchVersion
   value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
+- name: fullVersion
+  value: '${majorVersion}.${minorVersion}.${patchVersion}' 
 stages:
 # - stage: UnitTest
 #   displayName: '$(title) Build and Test'
@@ -61,6 +63,4 @@ stages:
         title: $(title)
         project: $(projectName)
         baseFolder:  $(baseFolder)
-        majorVersion: $(variables.majorVersion)
-        minorVersion: $(variables.minorVersion)
-        patchVersion: $(variables.patchVersion)
+        versionVar: 'fullVersion'
