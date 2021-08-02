@@ -36,19 +36,18 @@ variables:
 - name: fullVersion
   value: '$(majorVersion).$(minorVersion).$(patchVersion).pre' 
 stages:
-# - stage: UnitTest
-#   displayName: '$(title) Build and Test'
+- stage: UnitTest
+  displayName: '$(title) Build and Test'
 
-#   jobs:
-#   - job:
-#     displayName: Build and Test
-#     steps:
-#     - template: pipeline-templates/build-project.template.yaml@templates
-#       parameters:
-#         title: $(title)
-#         project: $(projectName)
-#         baseFolder: $(baseFolder)
-#         skipBuild: false
+  jobs:
+  - job:
+    displayName: Build and Test
+    steps:
+    - template: pipeline-templates/build-project.template.yaml@templates
+      parameters:
+        title: $(title)
+        project: $(projectName)
+        baseFolder: $(baseFolder)
 
 - stage: PackAndPublish
   # dependsOn: UnitTest
