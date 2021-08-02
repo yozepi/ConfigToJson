@@ -56,6 +56,6 @@ stages:
         project: $(projectName)
         baseFolder:  $(baseFolder)
         skipBuild: true
-        major-version: $(major-version)
-        minor-version: $(minor-version)
-        patch-version: $(patch-version)
+        majorVersion: $(major-version)
+        minorVersion: $(minor-version)
+        patchVersion: $(patch-version)
