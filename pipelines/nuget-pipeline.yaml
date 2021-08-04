@@ -63,3 +63,8 @@ stages:
         project: $(projectName)
         baseFolder:  $(baseFolder)
         versionVar: 'fullVersion'
+        prePublishSteps:
+        - task: NuGetAuthenticate@0
+          displayName: 'authenticate to NuGet'
+          inputs:
+            nuGetServiceConnections: 'yozepi-nuget'
