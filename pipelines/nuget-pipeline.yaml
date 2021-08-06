@@ -15,6 +15,8 @@ resources:
     name: utilities/pipeline-scripts
 
 variables:
+- group: 'NuGet-Org'
+
 - name: title
   value: 'ConfigToJson'
   
@@ -63,8 +65,4 @@ stages:
         project: $(projectName)
         baseFolder:  $(baseFolder)
         versionVar: 'fullVersion'
-        prePublishSteps:
-        - task: NuGetAuthenticate@0
-          displayName: 'authenticate to NuGet'
-          inputs:
-            nuGetServiceConnections: 'yozepi-nuget'
+        apiKey: $(nuget.org.apiKey)
