@@ -27,29 +27,30 @@ variables:
   value: '/src'
 
 - name: majorVersion
-  value: '2'
+  value: '0'
 
 - name: minorVersion
-  value: '0'
+  value: '2'
 
 - name: patchVersion
   value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
 - name: fullVersion
-  value: '$(majorVersion).$(minorVersion).$(patchVersion)-pre' 
-stages:
-# - stage: UnitTest
-#   displayName: '#title# Build and Test'
+  value: '$(majorVersion).$(minorVersion).$(patchVersion)-alpha'
 
-#   jobs:
-#   - job:
-#     displayName: Build and Test
-#     steps:
-#     - template: pipeline-templates/build-project.template.yaml@templates
-#       parameters:
-#         title: $(title)
-#         project: $(projectName)
-#         baseFolder: $(baseFolder)
+stages:
+- stage: UnitTest
+  displayName: '#title# Build and Test'
+
+  jobs:
+  - job:
+    displayName: Build and Test
+    steps:
+    - template: pipeline-templates/build-project.template.yaml@templates
+      parameters:
+        title: $(title)
+        project: $(projectName)
+        baseFolder: $(baseFolder)
 
 - stage: PackAndPublish
   # dependsOn: UnitTest
