@@ -25,7 +25,7 @@ variables:
   value: '/src'
 
 - name: majorVersion
-  value: '1'
+  value: '2'
 
 - name: minorVersion
   value: '0'
