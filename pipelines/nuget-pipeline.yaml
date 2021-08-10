@@ -40,7 +40,7 @@ variables:
 
 stages:
 - stage: UnitTest
-  displayName: '${{ varibles.title }} Build and Test'
+  displayName: '${{ variables.title }} Build and Test'
 
   jobs:
   - job:
