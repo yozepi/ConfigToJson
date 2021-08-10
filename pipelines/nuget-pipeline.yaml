@@ -40,7 +40,7 @@ variables:
 
 stages:
 - stage: UnitTest
-  displayName: '#title# Build and Test'
+  displayName: '${{ varibles.title }} Build and Test'
 
   jobs:
   - job:
@@ -52,18 +52,18 @@ stages:
         project: $(projectName)
         baseFolder: $(baseFolder)
 
-- stage: PackAndPublish
-  # dependsOn: UnitTest
-  displayName: '#title# NuGet Pack and Publish'
+# - stage: PackAndPublish
+#   # dependsOn: UnitTest
+#   displayName: '#title# NuGet Pack and Publish'
 
-  jobs:
-  - job:
-    displayName: Pack and Publish
-    steps:
-    - template: pipeline-templates/nuget-pipeline.template.yaml@templates
-      parameters:
-        title: $(title)
-        project: $(projectName)
-        baseFolder:  $(baseFolder)
-        versionVar: 'fullVersion'
-        apiKey: $(nuget.org.apiKey)
+#   jobs:
+#   - job:
+#     displayName: Pack and Publish
+#     steps:
+#     - template: pipeline-templates/nuget-pipeline.template.yaml@templates
+#       parameters:
+#         title: $(title)
+#         project: $(projectName)
+#         baseFolder:  $(baseFolder)
+#         versionVar: 'fullVersion'
+#         apiKey: $(nuget.org.apiKey)
