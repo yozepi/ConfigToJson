@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yozepi.ConfigToJson", "..\src\yozepi.ConfigToJson\yozepi.ConfigToJson.csproj", "{77330052-97D8-42D4-8DC7-3343C4E53185}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{5727D431-7379-4CCE-804B-A5155AA5455A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77330052-97D8-42D4-8DC7-3343C4E53185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77330052-97D8-42D4-8DC7-3343C4E53185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77330052-97D8-42D4-8DC7-3343C4E53185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77330052-97D8-42D4-8DC7-3343C4E53185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5727D431-7379-4CCE-804B-A5155AA5455A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5727D431-7379-4CCE-804B-A5155AA5455A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5727D431-7379-4CCE-804B-A5155AA5455A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5727D431-7379-4CCE-804B-A5155AA5455A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F163542F-A64D-4831-B4C1-AD270B6CB549}
+	EndGlobalSection
+EndGlobal

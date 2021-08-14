@@ -1,0 +1,66 @@
+name: $(Date:yyyyMMdd)$(Rev:.rr)
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: utilities/pipeline-scripts
+
+variables:
+- group: 'NuGet-Org'
+
+- name: title
+  value: 'ConfigToJson'
+
+- name: projectName
+  value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
+
+- name: baseFolder
+  value: '/src'
+
+- name: majorVersion
+  value: '1'
+
+- name: minorVersion
+  value: '0'
+
+- name: patchVersion
+  value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
+
+- name: fullVersion
+  value: '$(majorVersion).$(minorVersion).$(patchVersion)'
+
+stages:
+- stage: UnitTest
+  displayName: 'Build and Test ${{ variables.title }}'
+
+  jobs:
+  - job:
+    displayName: Build and Test
+    steps:
+    - template: pipeline-templates/build-project.template.yaml@templates
+      parameters:
+        title: $(title)
+        project: $(projectName)
+        baseFolder: $(baseFolder)
+
+- stage: PackAndPublish
+  # dependsOn: UnitTest
+  displayName: 'NuGet Pack and Publish ${{ variables.title }}'
+
+  jobs:
+  - job:
+    displayName: Pack and Publish
+    steps:
+    - template: pipeline-templates/nuget-pipeline.template.yaml@templates
+      parameters:
+        title: $(title)
+        project: $(projectName)
+        baseFolder:  $(baseFolder)
+        versionVar: 'fullVersion'
+        apiKey: $(nuget.org.apiKey)

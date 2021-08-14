@@ -1,0 +1,41 @@
+name: $(Date:yyyyMMdd)$(Rev:.rr)
+
+trigger:
+  branches:
+    exclude:
+    - "*"
+
+pr:
+ branches:
+  include:
+    - main
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+  - repository: templates
+    type: git
+    name: utilities/pipeline-scripts
+
+variables:
+- name: projectName
+  value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
+
+- name: baseFolder
+  value: /src
+  
+stages:
+- stage: UnitTestFramework
+  displayName: ConfigToJson Unit Tests
+
+  jobs:
+  - job:
+    displayName: Build and Test
+    steps:
+    - template: pipeline-templates/build-project.template.yaml@templates
+      parameters:
+        project: $(projectName)
+        baseFolder: $(baseFolder)
+        skipBuild: false

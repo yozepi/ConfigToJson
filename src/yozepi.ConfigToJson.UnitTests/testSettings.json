@@ -1,0 +1,35 @@
+{
+  "numberSetting": 42,
+  "boolSettingTrue": true,
+  "boolSettingFalse": false,
+  "stringSetting": "Hello World!",
+  "simpleArray": [ 1, 2, 3, 4, 5 ],
+  "nestedArray": [
+    { "element": "Lorem" },
+    { "element": "Ipsum" }
+  ],
+  "nestedSettings": {
+    "numberSetting": 42,
+    "boolSettingTrue": true,
+    "boolSettingFalse": true,
+    "stringSetting": "Hello World!",
+    "simpleArray": [ 1, 2, 3, 4, 5 ],
+    "nestedArray": [
+      { "element": "Lorem" },
+      { "element": "Ipsum" }
+    ]
+  },
+  "deep": {
+    "nestedSettings": {
+      "numberSetting": 42,
+      "boolSettingTrue": true,
+      "boolSettingFalse": true,
+      "stringSetting": "Hello World!",
+      "simpleArray": [ 1, 2, 3, 4, 5 ],
+      "nestedArray": [
+        { "element": "Lorem" },
+        { "element": "Ipsum" }
+      ]
+    }
+  }
+}
