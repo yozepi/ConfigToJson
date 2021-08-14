@@ -16,7 +16,7 @@ variables:
 
 - name: title
   value: 'ConfigToJson'
-  
+
 - name: projectName
   value: yozepi.ConfigToJson/yozepi.ConfigToJson.csproj
 
@@ -24,16 +24,16 @@ variables:
   value: '/src'
 
 - name: majorVersion
-  value: '0'
+  value: '1'
 
 - name: minorVersion
-  value: '2'
+  value: '0'
 
 - name: patchVersion
   value: $[counter(format('{0}.{1}', variables['majorVersion'], variables['minorVersion']), 0)]
 
 - name: fullVersion
-  value: '$(majorVersion).$(minorVersion).$(patchVersion)-alpha'
+  value: '$(majorVersion).$(minorVersion).$(patchVersion)'
 
 stages:
 - stage: UnitTest
